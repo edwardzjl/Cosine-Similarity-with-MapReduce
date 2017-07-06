@@ -16,30 +16,36 @@
 
 package com.gsvic.csmr;
 
-import java.io.IOException;
+import com.gsvic.csmr.io.VectorArrayWritable;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.mahout.common.distance.CosineDistanceMeasure;
 import org.apache.mahout.math.VectorWritable;
 
-public class CosineSimilarityReducer 
-    extends Reducer<Text, VectorArrayWritable, Text, DoubleWritable>{
-    
+import java.io.IOException;
+
+public class CosineSimilarityReducer extends Reducer<Text, VectorArrayWritable, Text, DoubleWritable> {
+    //~ Instance fields --------------------------------------------------------
+
+    private DoubleWritable outputValue = new DoubleWritable();
+
+    //~ Methods ----------------------------------------------------------------
+
     @Override
     public void reduce(Text key, Iterable<VectorArrayWritable> value, Context context)
-    throws IOException, InterruptedException{
-        
+            throws IOException, InterruptedException {
+
         CosineDistanceMeasure cdm = new CosineDistanceMeasure();
-        VectorWritable docX,docY;
-        double cosine;
-        for (VectorArrayWritable v : value){
-            docX = (VectorWritable)v.get()[0];
-            docY = (VectorWritable)v.get()[1];
-            cosine = cdm.distance(docX.get(), docY.get());
-            context.write(key, new DoubleWritable(cosine));
+
+        for (VectorArrayWritable v : value) {
+            VectorWritable docX = (VectorWritable) v.get()[0];
+            VectorWritable docY = (VectorWritable) v.get()[1];
+
+            this.outputValue.set(cdm.distance(docX.get(), docY.get()));
+            context.write(key, this.outputValue);
         }
-    
     }
-    
 }
+
+// End CosineSimilarityReducer.java

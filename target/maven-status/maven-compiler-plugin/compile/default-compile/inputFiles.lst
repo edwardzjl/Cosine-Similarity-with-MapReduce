@@ -1,0 +1,9 @@
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/com/gsvic/csmr/CosineSimilarityReducer.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/com/gsvic/csmr/io/InputData.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/com/gsvic/csmr/CSMRBase.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/com/gsvic/csmr/DocumentWritable.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/com/gsvic/csmr/CSMRMapper.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/InputDataUsage.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/com/gsvic/csmr/CSMRReducer.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/com/gsvic/csmr/VectorArrayWritable.java
+/Users/edwardlol/workspace/Cosine-Similarity-with-MapReduce/src/main/java/main.java

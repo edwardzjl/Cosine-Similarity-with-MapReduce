@@ -16,22 +16,31 @@
 
 package com.gsvic.csmr;
 
-import java.io.IOException;
+import com.gsvic.csmr.io.DocumentWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.mahout.math.VectorWritable;
 
+import java.io.IOException;
 
-public class CSMRMapper extends Mapper<Text,VectorWritable,IntWritable,
-        DocumentWritable >{
-    
+
+public class CSMRMapper extends Mapper<Text, VectorWritable, IntWritable, DocumentWritable> {
+    //~ Instance fields --------------------------------------------------------
+
+    private final IntWritable outputKey = new IntWritable(1);
+
+    private final DocumentWritable outputValue = new DocumentWritable();
+
+    //~ Methods ----------------------------------------------------------------
+
     @Override
-    public void map(Text key, VectorWritable value, Context context) 
-            throws IOException, InterruptedException{   
-            DocumentWritable p = new DocumentWritable(new Text(key.toString())
-                    ,new VectorWritable(value.get()));
-            context.write(new IntWritable(1),p);
+    public void map(Text key, VectorWritable value, Context context)
+            throws IOException, InterruptedException {
 
+        this.outputValue.set(key, value);
+        context.write(this.outputKey, this.outputValue);
     }
 }
+
+// End CSMRMapper.java

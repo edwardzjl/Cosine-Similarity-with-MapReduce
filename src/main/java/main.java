@@ -14,14 +14,19 @@
  * limitations under the License.
  */
 
-import com.gsvic.csmr.*;
+import com.gsvic.csmr.CSMRBase;
+
 import java.io.IOException;
 
 public class main {
-    public static void main(String[] args) 
-            throws IOException, InterruptedException, ClassNotFoundException{
-        CSMRBase.generatePairs(args[0],args[1]);
+
+    public static void main(String[] args)
+            throws IOException, InterruptedException, ClassNotFoundException {
+
+
+//        CSMRBase.generatePairs(args[0], args[1]);
+        CSMRBase.generatePairs("input-vectors/tfidf-vectors/part-r-00000", "output");
         CSMRBase.StartCSMR();
     }
-    
+
 }

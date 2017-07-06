@@ -1,0 +1,9 @@
+com/gsvic/csmr/CSMRReducer.class
+main.class
+com/gsvic/csmr/CosineSimilarityReducer.class
+com/gsvic/csmr/VectorArrayWritable.class
+com/gsvic/csmr/DocumentWritable.class
+com/gsvic/csmr/CSMRBase.class
+com/gsvic/csmr/CSMRMapper.class
+com/gsvic/csmr/io/InputData.class
+InputDataUsage.class
